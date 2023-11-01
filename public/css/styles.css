@@ -1,24 +1,51 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-:root {
+:root{
     --bg-header-mobile: url(../imagens/bg-header-mobile-light.png);
+    --bg-header-desktop: url(../imagens/bg-header-desktop-light.png);
     --input-box-shadow: rgba(194, 195, 214, 0.50);
+    --placeholder-color: #9495a5;
     --input-color: #494C6B;
-    --button-color: #393A4B;
+    --input-bg: #fff;
+    --button-color:  #494C6B;
+    --button-color-hover: #393A4B;
     --bg-body: #FAFAFA;
     --bg-tarefas: #fff;
-    --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.50);
-    --border-color: #E3E4F1;
-    --text-color: #494C6B;
-    --info-text-color: #9495A5;
+    --box-shadow: box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.50);
+    --border-color: #e3e4f1;
+    --text-color: #494c6b;
+    --todo-complete-color: #D1D2DA;
+    --info-text-color: #9495a5;
+    --info-button-hover: #494C6B;
+    --info-button-active: #3a7cfd;
 }
 
-body {
+body.dark {
+    --bg-header-mobile: url(../imagens/bg-header-mobile-dark.png);
+    --bg-header-desktop: url(../imagens/bg-header-desktop-dark.png);
+    --input-box-shadow: rgba(0, 0, 0, 0.50);
+    --placeholder-color: #767992;
+    --input-color: #c8cbe7;
+    --input-bg: #25273D;
+    --button-color: #25273d;
+    --button-color-hover: #5b5e7e;
+    --bg-body: #171823;
+    --bg-tarefas: #25273d;
+    --box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
+    --border-color: #393A4B;
+    --text-color: #C8CBE7;
+    --todo-complete-color: #4D5067;
+    --info-text-color: #5b5e7e;
+    --info-button-hover: #E3E4F1;
+    --info-button-active: #3a7cfd;
+}
+
+body{
     background: var(--bg-body);
 }
 
@@ -36,7 +63,8 @@ header > div {
     max-width: 33.75rem;
     margin-inline: auto;
 }
-header div div{
+
+header div div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,7 +72,13 @@ header div div{
     margin-bottom: 2.5rem;
 }
 
-header div h1 {
+header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header div h1{
     color: #fff;
     text-transform: uppercase;
 }
@@ -53,6 +87,7 @@ header form {
     display: flex;
     gap: 0.5rem;
 }
+
 header form input {
     padding: 1.12rem;
     border-radius: 0.3125rem;
@@ -61,7 +96,12 @@ header form input {
     width: 100%;
     outline: none;
     font-size: 0.75rem;
-    color: var(--input-color)
+    color: var(--input-color);
+    background: var(--input-bg);
+}
+
+header form input::placeholder{
+    color: var(--placeholder-color);
 }
 
 header form button {
@@ -72,19 +112,17 @@ header form button {
     color: #fff;
 }
 
-main {
-    min-height: calc(100vh - 12.5rem);
+main{
     padding-inline: 1.75rem;
 }
 
-.tarefas {
+.tarefas{
     background: var(--bg-tarefas);
     box-shadow: var(--box-shadow);
     border-radius: 0.3125rem;
-    margin-top: -1.5rem;
+    margin-top: -1rem;
     max-width: 33.75rem;
     margin-inline: auto;
-
 }
 
 .tarefas .tarefa {
@@ -93,6 +131,11 @@ main {
 
 .tarefas .tarefa + .tarefa {
     border-top: 1px solid var(--border-color);
+}
+
+.completa label {
+    text-decoration: line-through;
+    color: var(--todo-complete-color);
 }
 
 .tarefa form {
@@ -104,6 +147,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
     color: var(--text-color);
     font-size: 0.75rem;
 }
@@ -111,7 +155,6 @@ main {
 .tarefa button {
     border: none;
     background: none;
-
 }
 
 .informacoes {
@@ -129,10 +172,10 @@ main {
     color: var(--info-text-color);
 }
 
-
 .informacoes .botoes {
     display: none;
 }
+
 .botoes {
     padding-block: 1rem;
     background: var(--bg-tarefas);
@@ -146,9 +189,49 @@ main {
     gap: 1.2rem;
 
     font-size: 0.875rem;
+} 
+
+.botoes .active {
+    color: var(--info-button-active);
 }
 
-@media(min-width: 100px){
+@media(min-width: 1000px) {
+    header {
+        background-image: var(--bg-header-desktop);
+        height: 18.75rem;
+        padding-top: 4.37rem;
+    }
+
+    header div div {
+        margin-bottom: 3rem;
+    }
+
+    header form input {
+        padding: 1.25rem 1.5rem;
+        font-size: 1.125rem;
+    }
+
+    header form button {
+        font-size: 1.125rem;
+    }
+
+    header form button:hover {
+        cursor: pointer;
+        background: var(--button-color-hover);
+    }
+
+    .tarefas {
+        margin-top: -3rem;
+    }
+
+    .tarefas .tarefa {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .tarefa div {
+        font-size: 1.125rem;
+    }
+
     section.botoes {
         display: none;
     }
@@ -157,13 +240,22 @@ main {
         display: flex;
         padding: 0;
         margin: 0;
+        gap: 2rem;
+    }
+
+    .informacoes {
+        font-size: 0.875rem;
+    }
+
+    .informacoes a:hover {
+        color: var(--info-button-hover);
     }
 
     .tarefa button {
         visibility: hidden;
     }
 
-    .tarefa input:hover,
+    .tarefa input:hover, 
     .tarefa label:hover,
     .tarefa button:hover {
         cursor: pointer;

@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "todo_app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^7.1.2"
+    "express-handlebars": "^7.1.2",
+    "mon": "^0.0.8",
+    "mysql2": "^3.6.3",
+    "node": "^21.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
