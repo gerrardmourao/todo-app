@@ -10,6 +10,8 @@
     --input-box-shadow: rgba(194, 195, 214, 0.50);
     --input-color: #494c6b;
     --button-color: #393a4b;
+    --bg-main: #FAFAFA;
+    --bg-tarefas:#FAFAFA;
 }
 
 header {
@@ -18,6 +20,7 @@ header {
     background-size: cover;
     background-position: center;
     height: 12.5rem;
+
     padding: 3rem 1.75rem 0;
 }
 
@@ -25,6 +28,7 @@ header div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     margin-bottom: 2.5rem;
 }
 
@@ -39,7 +43,7 @@ header form {
 }
 
 header form input {
-    padding: 1.2rem;
+    padding: 1.12rem;
     border-radius: 0.3125rem;
     border: none;
     box-shadow: 0px 35px 50px -15px var(--input-box-shadow);
@@ -55,4 +59,14 @@ header form button {
     border: none;
     background: var(--button-color);
     color: #fff;
+}
+
+main {
+    background: var(--bg-main);
+    min-height: calc(100vh - 12.5rem);
+    padding-inline: 1.5rem;
+}
+
+.tarefas {
+    background: var(--bg-tarefas);
 }
